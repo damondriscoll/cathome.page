@@ -54,6 +54,8 @@
     window.addEventListener('load', function() {
       loadRandomCat();
       updateCurrentTime();
+
+      setInterval(updateCurrentTime, 1000);
     });
   </script>
 </body>
