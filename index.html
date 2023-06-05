@@ -4,7 +4,7 @@
   <title>Cat Home Page</title>
   <style>
     body {
-      background-color: rgb(37, 37, 37);
+      background-color: rgb(14, 14, 14);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,7 +23,7 @@
   <script>
     // Load a random cat image
     function loadRandomCat() {
-      fetch('https://cataas.com/cat?html=true')
+      fetch('https://cataas.com/cat/gif')
         .then(response => {
           const catImageUrl = response.url;
           const catImageElement = document.getElementById('catImage');
