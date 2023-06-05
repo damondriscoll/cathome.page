@@ -23,7 +23,7 @@
   <script>
     // Load a random cat image
     function loadRandomCat() {
-      fetch('https://cataas.com/cat')
+      fetch('https://cataas.com/cat?html=true')
         .then(response => {
           const catImageUrl = response.url;
           const catImageElement = document.getElementById('catImage');
