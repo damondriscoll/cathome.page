@@ -12,6 +12,7 @@
       flex-direction: column;
       height: 100vh;
       margin: 0;
+      position: relative;
     }
 
     #catGif {
@@ -24,11 +25,27 @@
       margin-top: 20px;
       font-family: 'Comic Sans MS', cursive;
     }
+
+    #githubLink {
+      font-size: 16px;
+      position: absolute;
+      bottom: 20px;
+      font-family: 'Comic Sans MS', cursive;
+      text-decoration: none;
+      color: rgb(66, 66, 66);
+      opacity: 0.1; /* Added: Initially hide the link */
+      transition: opacity 0.3s ease; /* Added: Smooth transition */
+    }
+
+    #githubLink:hover {
+      opacity: 1; /* Added: Show the link on hover */
+    }
   </style>
 </head>
 <body>
   <img id="catGif" src="">
   <div id="currentTime"></div>
+  <a id="githubLink" href="https://github.com/damondriscoll/cathome.page">GitHub</a>
 
   <script>
     // Load a random cat gif
