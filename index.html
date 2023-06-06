@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>&lrm;</title>
-  <link rel="icon" href="../cats/cat.svg" type="image/svg+xml">
-  <link rel="shortcut icon" href="../cats/cat.svg" type="image/x-icon">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="icon.svg" type="image/x-icon">
   <style>
     body {
       background-color: rgb(14, 14, 14);
@@ -62,7 +62,7 @@
       const max = 17; // Adjust according to the number of GIFs available
       const gifNumber = Math.floor(Math.random() * (max - 2)) + 1; 
       const catGifElement = document.getElementById('catGif');
-      catGifElement.src = `../cats/cat${gifNumber}.gif`;
+      catGifElement.src = `cats/cat${gifNumber}.gif`;
     }
 
     // Format current user time
