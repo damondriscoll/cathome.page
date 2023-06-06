@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>cathome.page</title>
+  <title>=^._.^= ∫</title>
   <style>
     body {
       background-color: rgb(14, 14, 14);
+      font-family: 'Comic Sans MS';
       color: white;
       display: flex;
       justify-content: center;
@@ -16,28 +17,25 @@
     }
 
     #catGif {
-      max-width: 100%;
+      max-width: 80%;
       height: 50vh;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
     #currentTime {
-      font-size: 24px;
+      font-size: 2.5vh;
       margin-top: 20px;
-      font-family: 'Comic Sans MS', cursive;
     }
 
     #currentDay {
-      font-size: 20px;
-      font-family: 'Comic Sans MS', cursive;
+      font-size: 2vh;
       opacity: 0.7;
     }
 
     #githubLink {
-      font-size: 16px;
+      font-size: 1.5vh;
       position: absolute;
       bottom: 20px;
-      font-family: 'Comic Sans MS', cursive;
       text-decoration: none;
       color: rgb(66, 66, 66);
       opacity: 0.1;
@@ -47,6 +45,7 @@
     #githubLink:hover {
       opacity: 1;
     }
+    
   </style>
 </head>
 <body>
@@ -56,13 +55,11 @@
   <a id="githubLink" href="https://github.com/damondriscoll/cathome.page">GitHub</a>
 
   <script>
-    gifNumber = getRandomNumber(1, 17) // Change this to max number of gifs
+    // Load a random cat gif
     function loadRandomCat() {
       const gifNumber = getRandomNumber(1, 17); // Adjust the range according to the number of GIFs available
-      const gifUrl = `cats/cat${gifNumber}.gif`;
-
       const catGifElement = document.getElementById('catGif');
-      catGifElement.src = gifUrl;
+      catGifElement.src = `cats/cat${gifNumber}.gif`;
     }
 
     // Generate a random number within a given range
@@ -74,12 +71,15 @@
     function updateCurrentTime() {
       const currentTimeElement = document.getElementById('currentTime');
       const currentDayElement = document.getElementById('currentDay');
+
       const currentTime = new Date().toLocaleTimeString();
-      const currentDay = new Date().toLocaleDateString(undefined, { weekday: 'long'});
+      const currentDay = new Date().toLocaleDateString(undefined, { weekday: 'long' });
+
       currentTimeElement.textContent = currentTime;
       currentDayElement.textContent = currentDay;
     }
 
+    // Load resources when window opened
     window.addEventListener('load', function() {
       loadRandomCat();
       updateCurrentTime();
