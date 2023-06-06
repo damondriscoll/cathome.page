@@ -39,7 +39,7 @@
       position: absolute;
       bottom: 20px;
       text-decoration: none;
-      color: rgb(66, 66, 66);
+      color: rgb(75, 75, 75);
       opacity: 0.1;
       transition: opacity 0.3s ease;
     }
@@ -59,14 +59,10 @@
   <script>
     // Load a random cat gif
     function loadRandomCat() {
-      const gifNumber = getRandomNumber(1, 17); // Adjust the range according to the number of GIFs available
+      const max = 17; // Adjust according to the number of GIFs available
+      const gifNumber = Math.floor(Math.random() * (max - 2)) + 1; 
       const catGifElement = document.getElementById('catGif');
       catGifElement.src = `../cats/cat${gifNumber}.gif`;
-    }
-
-    // Generate a random number within a given range
-    function getRandomNumber(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     // Format current user time
