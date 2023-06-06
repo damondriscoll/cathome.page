@@ -27,6 +27,12 @@
       font-family: 'Comic Sans MS', cursive;
     }
 
+    #currentDay {
+      font-size: 20px;
+      font-family: 'Comic Sans MS', cursive;
+      opacity: 0.7;
+    }
+
     #githubLink {
       font-size: 16px;
       position: absolute;
@@ -46,27 +52,48 @@
 <body>
   <img id="catGif" src="">
   <div id="currentTime"></div>
+  <div id="currentDay"></div>
   <a id="githubLink" href="https://github.com/damondriscoll/cathome.page">GitHub</a>
 
   <script>
-    // Load a random cat gif
     function loadRandomCat() {
-      fetch('https://cataas.com/cat/gif')
-        .then(response => {
-          const catGifUrl = response.url;
-          const catGifElement = document.getElementById('catGif');
-          catGifElement.src = catGifUrl;
+      fetch('cats/')
+        .then(response => response.text())
+        .then(text => {
+          const parser = new DOMParser();
+          const html = parser.parseFromString(text, 'text/html');
+          const links = html.querySelectorAll('a');
+
+          const catGifs = Array.from(links)
+            .map(link => link.href)
+            .filter(href => href.toLowerCase().endsWith('.gif'));
+
+          if (catGifs.length > 0) {
+            const randomIndex = getRandomNumber(0, catGifs.length - 1);
+            const randomCatGif = catGifs[randomIndex];
+
+            const catGifElement = document.getElementById('catGif');
+            catGifElement.src = randomCatGif;
+          }
         })
         .catch(error => {
           console.error('Error:', error);
         });
     }
 
+    // Generate a random number within a given range
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     // Format current user time
     function updateCurrentTime() {
       const currentTimeElement = document.getElementById('currentTime');
+      const currentDayElement = document.getElementById('currentDay');
       const currentTime = new Date().toLocaleTimeString();
+      const currentDay = new Date().toLocaleDateString(undefined, { weekday: 'long'});
       currentTimeElement.textContent = currentTime;
+      currentDayElement.textContent = currentDay;
     }
 
     window.addEventListener('load', function() {
