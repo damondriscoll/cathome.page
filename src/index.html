@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>&lrm;</title>
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="shortcut icon" href="icon.svg" type="image/x-icon">
+  <link rel="icon" href="../cats/cat.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="../cats/cat.svg" type="image/x-icon">
   <style>
     body {
       background-color: rgb(14, 14, 14);
@@ -61,7 +61,7 @@
     function loadRandomCat() {
       const gifNumber = getRandomNumber(1, 17); // Adjust the range according to the number of GIFs available
       const catGifElement = document.getElementById('catGif');
-      catGifElement.src = `cats/cat${gifNumber}.gif`;
+      catGifElement.src = `../cats/cat${gifNumber}.gif`;
     }
 
     // Generate a random number within a given range
