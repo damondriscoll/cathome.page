@@ -56,29 +56,13 @@
   <a id="githubLink" href="https://github.com/damondriscoll/cathome.page">GitHub</a>
 
   <script>
+    gifNumber = getRandomNumber(1, 17) // Change this to max number of gifs
     function loadRandomCat() {
-      fetch('cats/')
-        .then(response => response.text())
-        .then(text => {
-          const parser = new DOMParser();
-          const html = parser.parseFromString(text, 'text/html');
-          const links = html.querySelectorAll('a');
+      const gifNumber = getRandomNumber(1, 17); // Adjust the range according to the number of GIFs available
+      const gifUrl = `cats/cat${gifNumber}.gif`;
 
-          const catGifs = Array.from(links)
-            .map(link => link.href)
-            .filter(href => href.toLowerCase().endsWith('.gif'));
-
-          if (catGifs.length > 0) {
-            const randomIndex = getRandomNumber(0, catGifs.length - 1);
-            const randomCatGif = catGifs[randomIndex];
-
-            const catGifElement = document.getElementById('catGif');
-            catGifElement.src = randomCatGif;
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
+      const catGifElement = document.getElementById('catGif');
+      catGifElement.src = gifUrl;
     }
 
     // Generate a random number within a given range
